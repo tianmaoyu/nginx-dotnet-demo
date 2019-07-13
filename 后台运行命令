@@ -1,3 +1,13 @@
 nohup **** &
 如：nohup dotnet webapp.dll & 
-就可以在后台运行了
+
+后台运行
+      nohup 你需要执行得命令 &
+
+  2.想要关闭分两步：
+
+       ps aux 
+
+       查看项目进程id所运行的进程号
+       
+   3.kill 进程号，关闭进程
