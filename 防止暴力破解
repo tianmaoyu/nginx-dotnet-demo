@@ -1,1 +1,36 @@
 https://blog.csdn.net/gammey/article/details/80404375
+
+
+1.1 修改SSHD配置，禁止root远程登录
+禁止登录之前先穿甲一个可以远程登录的普通用户，以免造成登录不了的情况
+
+
+[root@jhkj66 ~]# useradd yw001             #创建用户
+[root@jhkj66 ~]# passwd yw001              #设置密码
+Changing password for user yw001.
+New password:                                    #输入你的密码
+Retype new password:                             #确认密码
+passwd: all authentication tokens updated successfully.  #设置成功
+1.1.1 打开SSHD的配置文件
+1
+2
+#vim /etc/ssh/sshd_config
+#查找“#PermitRootLogin yes”，将前面的“#”去掉，短尾“yes”改为“no”（不同版本可能区分大小写），并保存文件。
+1.1.2 修改完毕后，重启sshd服务
+1
+2
+service sshd restart  #centos6系列
+systemctl restart sshd #centos7系列
+1.2 修改sshd默认端口
+虽然更改端口无法在根本上抵御端口扫描，但是，可以在一定程度上提高防御。
+
+1.2.1 打开sshd配置文件
+1
+2
+#vi /etc/ssh/sshd_config
+#找到#Port 22字段删掉#，将22改为其他不被使用的端口服务器端口最大可以开到65536
+1.2.2 重启sshd服务
+1
+2
+#service sshd restart      #centos6系列
+#systemctl restart sshd  #centos7系列
