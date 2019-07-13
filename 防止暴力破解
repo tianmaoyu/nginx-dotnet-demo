@@ -34,3 +34,14 @@ systemctl restart sshd #centos7系列
 2
 #service sshd restart      #centos6系列
 #systemctl restart sshd  #centos7系列
+
+
+其他系列：可以再名字中加入@ 因为不允许名字有@
+vi /etc/passwd
+按i键进入编辑状态
+修改第1行第1个root为新的用户名
+按esc键退出编辑状态，并输入:x保存并退出
+vi /etc/shadow
+按i键进入编辑状态
+修改第1行第1个root为新的用户名
+按esc键退出编辑状态，并输入:x!强制保存并退出
