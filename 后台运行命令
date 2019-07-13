@@ -1,0 +1,3 @@
+nohup **** &
+如：nohup dotnet webapp.dll & 
+就可以在后台运行了
